@@ -187,3 +187,22 @@ console.log('Clubs' ,filterClubs)
 // }
 
 
+let emptyDeck = deck.reduce(function (accumulator,deck) {
+    if (deck.cardSuit === 'hearts'){
+        accumulator.hearts.push(deck)
+    } else if (deck.cardSuit === 'clubs'){
+        accumulator.clubs.push(deck)
+    }else if (deck.cardSuit === 'diamonds'){
+        accumulator.diamonds.push(deck)
+    } else if (deck.cardSuit === 'spades'){
+        accumulator.spades.push(deck)
+    }
+    return accumulator
+},{
+    spades:[],
+    diamonds:[],
+    hearts:[],
+    clubs:[]
+})
+
+console.log(emptyDeck)
