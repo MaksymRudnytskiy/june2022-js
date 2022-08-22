@@ -9,3 +9,10 @@ let coursesAndDurationArray = [
 ];
 // Для кожного елементу масиву зробити блок в якому вивести інформацію про title та monthDuration
 // Завдання робити через цикли.
+
+for (const course of coursesAndDurationArray) {
+    let div = document.createElement('div')
+    div.innerHTML = `Title: ${course.title}, Months Duration: ${course.monthDuration}`
+
+    document.body.appendChild(div)
+}
