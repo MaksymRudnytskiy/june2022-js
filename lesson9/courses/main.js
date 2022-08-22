@@ -97,17 +97,18 @@ for (const course of coursesArray) {
     time.appendChild(hourDuration)
 
     let ul = document.createElement('ul')
-    hourDuration.classList.add('ul')
+    ul.classList.add('ul')
 
     for (const module of course.modules) {
         let list = document.createElement('li')
+        list.classList.add('li')
         list.innerHTML = `${module}`
         ul.appendChild(list)
     }
 
     document.body.appendChild(div)
     div.appendChild(time)
-    document.body.appendChild(ul)
+    div.appendChild(ul)
 }
 
 
