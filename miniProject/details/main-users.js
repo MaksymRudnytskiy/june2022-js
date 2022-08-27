@@ -115,7 +115,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
                                 let a = document.createElement('a')
                                 a.classList.add('button')
                                 a.innerText = 'post of current user'
-                                a.href = `../posts/post-details.html?id=${posts.id}`
+                                a.href = `../posts/post-details.html?id=${post.id}`
                                 divPost.appendChild(a)
                             }
 
