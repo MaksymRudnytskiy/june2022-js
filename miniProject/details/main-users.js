@@ -2,7 +2,6 @@ let url = new URL(location.href)
 
 let id = url.searchParams.get('id')
 
-let userId = url.searchParams.get('userId')
 
 fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then(response => response.json())
@@ -10,10 +9,10 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             let div = document.createElement('div')
             div.classList.add('item')
 
-            let userID = document.createElement('p')
-            userID.classList.add('id')
-            userID.innerHTML = `ID: ${user.id}`
-            div.appendChild(userID)
+            let id = document.createElement('p')
+            id.classList.add('id')
+            id.innerHTML = `ID: ${user.id}`
+            div.appendChild(id)
 
             let name = document.createElement('p')
             name.classList.add('name')
@@ -84,17 +83,49 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             catchBs.innerHTML = `BS: ${user.company.bs}`
             companyDiv.appendChild(catchBs)
 
-            let a = document.createElement('a')
-            a.classList.add('button')
-            a.innerText = 'post of current user'
-            a.href = `../posts/post-details.html?id=${user.id}`
-            div.appendChild(a)
+            // let a = document.createElement('a')
+            // a.classList.add('button')
+            // a.innerText = 'post of current user'
+            // a.href = `../posts/post-details.html?id=${user.id}`
+            // div.appendChild(a)
 
             // let a = document.createElement('a')
             // a.classList.add('button')
             // a.innerText = 'post of current user'
-            // a.href = `../posts/post-details.html?userId=${user.userId}`
+            // a.href = `../posts/post-details.html`
             // div.appendChild(a)
+
+            let button = document.createElement('button')
+            button.classList.add('button')
+            button.innerText = 'post of current user'
+            button.onclick = () => {
+
+                let divPost = document.createElement('div')
+                divPost.classList.add('divPost')
+
+                fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+                    .then(response => response.json())
+                    .then(posts => {
+                            for (const post of posts) {
+                                let title = document.createElement('p')
+                                title.classList.add('title')
+                                title.innerHTML = `Title: ${post.title}`
+                                divPost.appendChild(title)
+
+                                let a = document.createElement('a')
+                                a.classList.add('button')
+                                a.innerText = 'post of current user'
+                                a.href = `../posts/post-details.html?id=${posts.id}`
+                                divPost.appendChild(a)
+                            }
+
+
+                        }
+                    )
+                div.appendChild(divPost)
+            }
+            div.appendChild(button)
+
 
             document.body.appendChild(div)
 
