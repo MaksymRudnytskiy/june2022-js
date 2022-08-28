@@ -1,0 +1,105 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.divUserWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 130px;
+    margin: 4%;
+    border: 1px solid black;
+    padding: 4%;
+}
+
+.divComment{
+    background: azure;
+    border: 1px solid red;
+    margin-top: 10px;
+
+}
+
+.userId{
+    border: 1px solid black;
+    height: auto;
+    width: 190px;
+    padding: 10px;
+}
+
+.id{
+    border: 1px solid black;
+    height: auto;
+    width: 190px;
+    padding: 10px;
+}
+
+
+.title{
+    border: 1px solid black;
+    height: auto;
+    width: 190px;
+    padding: 10px;
+}
+
+
+.body{
+    border: 1px solid black;
+    height: auto;
+    width: 190px;
+    padding: 10px;
+}
+
+.divPost{
+    width: 220px;
+}
+
+.postIdComment{
+    border: 1px solid black;
+    height: auto;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.idComment{
+    border: 1px solid black;
+    height: auto;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.nameComment{
+    border: 1px solid black;
+    height: auto;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+
+.emailComment{
+    border: 1px solid black;
+    height: auto;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.bodyComment{
+    border: 1px solid black;
+    height: auto;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+

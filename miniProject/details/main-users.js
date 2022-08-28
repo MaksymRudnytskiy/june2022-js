@@ -58,8 +58,8 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 
             let geoDiv = document.createElement('div')
             geoDiv.innerHTML = `Geo: lat:${user.address.geo.lat}, lng:${user.address.geo.lng}`
-            geoDiv.classList.add('addressDiv')
-            divUser.appendChild(geoDiv)
+            // geoDiv.classList.add('addressDiv')
+        addressDiv.appendChild(geoDiv)
 
             let userPhone = document.createElement('p')
             userPhone.classList.add('phone')
@@ -99,7 +99,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 
                 let divPost = document.createElement('div')
                 divPost.classList.add('divPost')
-
+                div.appendChild(divPost)
 
                 fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
                     .then(response => response.json())
@@ -115,7 +115,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
                                 divPostDescription.appendChild(title)
 
                                 let a = document.createElement('a')
-                                a.classList.add('button')
+                                a.classList.add('buttonPost')
                                 a.innerText = 'post of current user'
                                 a.href = `../posts/post-details.html?id=${post.id}`
                                 divPostDescription.appendChild(a)
@@ -124,7 +124,6 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 
                         }
                     )
-                div.appendChild(divPost)
             }
             divBtn.appendChild(button)
 

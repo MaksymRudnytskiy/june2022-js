@@ -2,34 +2,42 @@ let url = new URL(location.href)
 
 let id = url.searchParams.get('id')
 
-// let users = url.searchParams.get('users')
+let div = document.createElement('div')
+div.classList.add('item')
+document.body.appendChild(div)
 
 fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
     .then(response => response.json())
     .then(posts => {
             for (const post of posts) {
-                let div = document.createElement('div')
-                div.classList.add('item')
+
+                let divUserWrap = document.createElement('div')
+                divUserWrap.classList.add('divUserWrap')
+                div.appendChild(divUserWrap)
 
                 let userID = document.createElement('p')
                 userID.classList.add('userId')
                 userID.innerHTML = `User Id: ${post.userId}`
-                div.appendChild(userID)
+                divUserWrap.appendChild(userID)
 
                 let id = document.createElement('p')
                 id.classList.add('id')
                 id.innerHTML = `ID: ${post.id}`
-                div.appendChild(id)
+                divUserWrap.appendChild(id)
 
                 let title = document.createElement('p')
                 title.classList.add('title')
                 title.innerHTML = `Title: ${post.title}`
-                div.appendChild(title)
+                divUserWrap.appendChild(title)
 
                 let body = document.createElement('p')
                 body.classList.add('body')
                 body.innerHTML = `${post.body}`
-                div.appendChild(body)
+                divUserWrap.appendChild(body)
+
+                let divBtn = document.createElement('div')
+                divBtn.classList.add('divBtn')
+                divUserWrap.appendChild(divBtn)
 
                 let button = document.createElement('button')
                 button.classList.add('button')
@@ -43,47 +51,51 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
                         .then(response => response.json())
                         .then(comments => {
                                 let title = document.createElement('p')
-                                title.classList.add('title')
+                                title.classList.add('titleComment')
                                 title.innerHTML = `Comments:`
                                 divPost.appendChild(title)
                                 for (const comment of comments) {
 
+                                    let divComment = document.createElement('div')
+                                    divComment.classList.add('divComment')
+                                    title.appendChild(divComment)
+
 
                                     let postId = document.createElement('p')
-                                    postId.classList.add('postId')
+                                    postId.classList.add('postIdComment')
                                     postId.innerHTML = `Post Id: ${comment.postId}`
-                                    title.appendChild(postId)
+                                    divComment.appendChild(postId)
 
                                     let id = document.createElement('p')
-                                    id.classList.add('id')
+                                    id.classList.add('idComment')
                                     id.innerHTML = `Id: ${comment.id}`
-                                    title.appendChild(id)
+                                    divComment.appendChild(id)
 
                                     let name = document.createElement('p')
-                                    name.classList.add('name')
+                                    name.classList.add('nameComment')
                                     name.innerHTML = `Name: ${comment.name}`
-                                    title.appendChild(name)
+                                    divComment.appendChild(name)
 
                                     let email = document.createElement('p')
-                                    email.classList.add('email')
+                                    email.classList.add('emailComment')
                                     email.innerHTML = `Email: ${comment.email}`
-                                    title.appendChild(email)
+                                    divComment.appendChild(email)
 
                                     let body = document.createElement('p')
-                                    body.classList.add('body')
+                                    body.classList.add('bodyComment')
                                     body.innerHTML = `Body: ${comment.body}`
-                                    title.appendChild(body)
+                                    divComment.appendChild(body)
 
                                 }
 
 
                             }
                         )
-                    div.appendChild(divPost)
+                    divUserWrap.appendChild(divPost)
                 }
-                div.appendChild(button)
+                divBtn.appendChild(button)
 
-                document.body.appendChild(div)
+
             }
 
 
