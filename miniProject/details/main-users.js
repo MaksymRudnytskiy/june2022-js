@@ -2,37 +2,42 @@ let url = new URL(location.href)
 
 let id = url.searchParams.get('id')
 
+let div = document.createElement('div')
+div.classList.add('item')
+document.body.appendChild(div)
 
 fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then(response => response.json())
     .then(user => {
-            let div = document.createElement('div')
-            div.classList.add('item')
+
+            let divUser = document.createElement('div')
+            divUser.classList.add('divUser')
+            div.appendChild(divUser)
 
             let id = document.createElement('p')
             id.classList.add('id')
             id.innerHTML = `ID: ${user.id}`
-            div.appendChild(id)
+            divUser.appendChild(id)
 
             let name = document.createElement('p')
             name.classList.add('name')
             name.innerHTML = `Name: ${user.name}`
-            div.appendChild(name)
+            divUser.appendChild(name)
 
             let userName = document.createElement('p')
             userName.classList.add('username')
             userName.innerHTML = `Username: ${user.username}`
-            div.appendChild(userName)
+            divUser.appendChild(userName)
 
             let userEmail = document.createElement('p')
             userEmail.classList.add('email')
             userEmail.innerHTML = `Email: ${user.email}`
-            div.appendChild(userEmail)
+            divUser.appendChild(userEmail)
 
             let addressDiv = document.createElement('div')
             addressDiv.innerHTML = `Address:`
             addressDiv.classList.add('addressDiv')
-            div.appendChild(addressDiv)
+            divUser.appendChild(addressDiv)
 
             let street = document.createElement('p')
             street.innerHTML = `Street: ${user.address.street}`
@@ -54,22 +59,22 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             let geoDiv = document.createElement('div')
             geoDiv.innerHTML = `Geo: lat:${user.address.geo.lat}, lng:${user.address.geo.lng}`
             geoDiv.classList.add('addressDiv')
-            div.appendChild(geoDiv)
+            divUser.appendChild(geoDiv)
 
             let userPhone = document.createElement('p')
             userPhone.classList.add('phone')
             userPhone.innerHTML = `Phone: ${user.phone}`
-            div.appendChild(userPhone)
+            divUser.appendChild(userPhone)
 
             let userWebsite = document.createElement('p')
             userWebsite.classList.add('website')
             userWebsite.innerHTML = `Website: ${user.website}`
-            div.appendChild(userWebsite)
+            divUser.appendChild(userWebsite)
 
             let companyDiv = document.createElement('div')
             companyDiv.innerHTML = `Company Information:`
             companyDiv.classList.add('companyDiv')
-            div.appendChild(companyDiv)
+            divUser.appendChild(companyDiv)
 
             let companyName = document.createElement('p')
             companyName.innerHTML = `Name: ${user.company.name}`
@@ -83,17 +88,9 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             catchBs.innerHTML = `BS: ${user.company.bs}`
             companyDiv.appendChild(catchBs)
 
-            // let a = document.createElement('a')
-            // a.classList.add('button')
-            // a.innerText = 'post of current user'
-            // a.href = `../posts/post-details.html?id=${user.id}`
-            // div.appendChild(a)
-
-            // let a = document.createElement('a')
-            // a.classList.add('button')
-            // a.innerText = 'post of current user'
-            // a.href = `../posts/post-details.html`
-            // div.appendChild(a)
+            let divBtn = document.createElement('div')
+            divBtn.classList.add('divBtn')
+            div.appendChild(divBtn)
 
             let button = document.createElement('button')
             button.classList.add('button')
@@ -122,12 +119,9 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 
                         }
                     )
-                div.appendChild(divPost)
+                divUser.appendChild(divPost)
             }
-            div.appendChild(button)
-
-
-            document.body.appendChild(div)
+            divBtn.appendChild(button)
 
 
         }

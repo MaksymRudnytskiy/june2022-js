@@ -1,0 +1,9 @@
+.button{
+    width: 90%;
+    height: 100px;
+}
+
+.divBtn{
+    display: flex;
+    justify-content: center;
+}
